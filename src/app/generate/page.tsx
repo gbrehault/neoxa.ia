@@ -1,3 +1,5 @@
+// Page generate qui va generer l'image en fonction du prompt
+
 import Form from "@/components/Form";
 import Image from "next/image";
 
@@ -26,6 +28,8 @@ export default function GenerateImage() {
                     priority
                 />
                 <div className="flex  flex-col items-center gap-6 rounded-3xl bg-white/20 backdrop-blur-sm border border-white/40 shadow-xl p-8 sm:items-start">
+
+                    {/* Composent Form qui contient le formulaire pour générer l'image */}
                     <Form />
 
                 </div>
