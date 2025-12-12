@@ -1,3 +1,5 @@
+// Récupére l'api avec le token gemini 
+
 import { GoogleGenAI } from "@google/genai";
 import { NextResponse } from "next/server";
 
