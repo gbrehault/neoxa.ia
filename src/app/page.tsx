@@ -1,8 +1,7 @@
 import Image from "next/image";
-import logoGemini from "../public/assets/gemini_aurora_thumbnail_4g_e74822ff0ca4259beb718.png"
 
 
-export default function Home() {
+export default function App() {
   return (
     <div className="relative min-h-screen overflow-hidden">
       {/* Vidéo */}
@@ -23,7 +22,7 @@ export default function Home() {
         {/* Glass card */}
         <div className="flex w-full max-w-3xl flex-col items-center gap-6 rounded-3xl bg-white/20 backdrop-blur-sm border border-white/40 shadow-xl p-8 sm:items-start">
           <Image
-            src="/LOGO_NEOXA.IA.png"
+            src="/logo_neoxa.png"
             alt="NEOXA.IA logo"
             width={200}
             height={120}
@@ -42,20 +41,21 @@ export default function Home() {
           <div className="flex gap-4 items-center">
             <a
               className="flex h-12 items-center justify-center rounded-full border-2 border-black px-6 text-black transition hover:bg-black hover:text-white"
-              href="https://neoxa.ai"
+              href="/generate"
               target="_blank"
             >
               Créer tes images
             </a>
             <a href="https://gemini.google.com/" target="_blank" className="text-sm text-zinc-600 underline">
               <Image
-                src={logoGemini}
+                src="/logogemini.png"
                 alt="Gemini logo"
                 width={120}
                 height={120}
               />
             </a>
           </div>
+
         </div>
       </main>
     </div>
