@@ -52,7 +52,7 @@ export default function GalleryItems() {
           {items.map((item) => (
             <li
               key={item.id}
-              className="group relative overflow-hidden rounded-3xl border border-white/40 bg-white/20 shadow-xl backdrop-blur-sm transition hover:-translate-y-1 hover:shadow-2xl"
+              className="group relative overflow-hidden rounded-3xl border border-white/40 bg-white/20 shadow-xl backdrop-blur-sm transition hover:shadow-2xl"
             >
               <div className="relative aspect-square">
                 <Image
@@ -63,7 +63,7 @@ export default function GalleryItems() {
                   className="object-cover"
                 />
               </div>
-              <div className="absolute inset-0 bg-linear-to from-black/70 via-black/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+              <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
               <div className="pointer-events-none absolute inset-x-0 bottom-0 p-4 text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                 <p className="text-sm font-medium">{item.prompt}</p>
                 <p className="mt-1 text-xs text-white/80">
