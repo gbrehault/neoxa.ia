@@ -1,6 +1,7 @@
 "use client"; // Obligatoire pour utiliser les hooks comme useState
 
 import { useState } from "react";
+import { DownloadSimpleIcon } from "@phosphor-icons/react";
 
 export default function Form() {
     const [prompt, setPrompt] = useState("");
@@ -36,21 +37,42 @@ export default function Form() {
         }
     };
 
+    const handleClickDownload = async () => {
+        if (imageSrc) {
+            const response = await fetch(imageSrc);
+            if (response.status !== 200) {
+                alert("Erreur lors du téléchargement de l'image.");
+                return;
+            }
+            const blob = await response.blob();
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = `image-gemini-${prompt}.jpg`;
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+            window.URL.revokeObjectURL(url);
+        }
+
+    }
     return (
 
         <div className="flex flex-col items-center gap-6 p-4">
             {/* Zone d'affichage de l'image */}
             {imageSrc && (
                 <div className="">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                        src={imageSrc}
-                        alt="Image générée par IA"
-                        className="max-w-md w-full h-auto rounded-xl"
-                    />
+                    {imageSrc && (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img
+                            src={imageSrc}
+                            alt="Image générée par IA"
+                            className="max-w-md w-full h-auto rounded-xl"
+                        />
+                    )}
                 </div>
             )}
-            <form onSubmit={handleSubmit} className="flex  w-full gap-2">
+            <form onSubmit={handleSubmit} className="flex flex-col md:flex-row gap-2">
                 <input
                     className="flex-[1_0_auto] h-12 items-center justify-center rounded-full border-2 border-black px-6 text-black transition hover:text-white focus:outline-none focus:text-black"
                     type="text"
@@ -66,6 +88,15 @@ export default function Form() {
                 >
                     {loading ? "Génération..." : "Générer"}
                 </button>
+                {imageSrc && (
+                    <button
+                        onClick={handleClickDownload}
+                        className="h-12 items-center justify-center bg-black rounded-full border-2 border-black px-3 text-white transition hover:bg-transparent hover:text-black"
+                    >
+                        <DownloadSimpleIcon size={24} />
+                    </button>
+                )}
+
             </form>
         </div>
     );
