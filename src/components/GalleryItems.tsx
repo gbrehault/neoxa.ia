@@ -41,7 +41,9 @@ export default function GalleryItems() {
   };
 
   useEffect(() => {
-    loadItems();
+    (async () => {
+      await loadItems();
+    })();
     const handler = () => {
       loadItems();
     };
