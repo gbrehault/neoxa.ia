@@ -28,6 +28,7 @@ export default function GalleryItems() {
       window.URL.revokeObjectURL(url);
     }
   };
+  console.log("test");
 
   const loadItems = async () => {
     try {
