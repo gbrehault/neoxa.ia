@@ -98,6 +98,11 @@ export default function GalleryItems() {
                 >
                   <DownloadSimpleIcon size={24} />
                 </button>
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 p-4 text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                <p className="text-sm font-medium">{item.prompt}</p>
+                <p className="mt-1 text-xs text-white/80">
+                  {new Date(item.createdAt).toLocaleDateString("fr-FR")}
+                </p>
               </div>
             </li>
           ))}
